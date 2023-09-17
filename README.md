@@ -22,9 +22,11 @@ Below Steps needs to be followed:
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm install postgresql-dev bitnami/postgresql
     kubectl get pods 
+
+    kubectl get secret/postgresql-dev -oyaml 
+
     kubectl exec -it pod/postgresql-dev-0 sh
 
-    kubectl get secret/postgresql-dev -oyaml
 
     echo OTYwV0FRemZHZA== | base64 -d
     POSTGRES_PASSWORD="960WAQzfGd"
