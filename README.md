@@ -45,7 +45,10 @@ Below Steps needs to be followed:
 
     INSERT INTO hello_world (region, country, year, production, consumption) VALUES ('America', 'USA', 1998, 2014, 12897);
 
+    kubectl get svc
+    kubectl edit svc/postgresql-dev 
 
+Change the Service to Load Balancer so that it can be accessed from Grafana
 
 # 3. Install Prometheus Postgres Exporter  
 
@@ -53,6 +56,8 @@ Below Steps needs to be followed:
     helm repo update
 
     helm upgrade --install postgres-exporter prometheus-community/prometheus-postgres-exporter -f postgress-exporter-values.yaml
+
+    kubectl port-forward svc/postgres-exporter-prometheus-postgres-exporter 8080:80
 
 # 4. Install Prometheus Mysql Exporter Dashboard  
 
