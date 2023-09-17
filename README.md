@@ -50,6 +50,10 @@ Below Steps needs to be followed:
 
 Change the Service to Load Balancer so that it can be accessed from Grafana
 
+To Search all of the time series data points grouping by job  
+
+    count({__name__=~".+"}) by (job)
+
 # 3. Install Prometheus Postgres Exporter  
 
     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
